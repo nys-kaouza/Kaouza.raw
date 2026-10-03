@@ -83,7 +83,7 @@ nav a:hover { color: var(--texto-suave); }
 }
 
 /* =========================================
-   INICIO (HERO ANIMADO)
+   INICIO (HERO ANIMADO CON FOTO EN CARPETA IMG)
 ========================================= */
 .hero {
     position: relative;
@@ -102,7 +102,7 @@ nav a:hover { color: var(--texto-suave); }
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
     background: linear-gradient(rgba(17, 17, 17, 0.45), rgba(17, 17, 17, 0.45)), 
-                url('portada.jpg') center/cover no-repeat;
+                url('img/portada.jpg') center/cover no-repeat;
     animation: zoomLento 20s ease-in-out infinite alternate;
 }
 
@@ -188,7 +188,7 @@ nav a:hover { color: var(--texto-suave); }
 }
 
 /* =========================================
-   PORTAFOLIO (MÁSÓNRY FLUIDO - SIN BORDES NEGROS)
+   PORTAFOLIO (MÁSÓNRY FLUIDO)
 ========================================= */
 .portfolio-section {
     padding: 100px 5vw;
@@ -197,23 +197,22 @@ nav a:hover { color: var(--texto-suave); }
 
 .text-center { text-align: center; margin-bottom: 60px; display: block; }
 
-/* Sistema de columnas puras para portafolios de fotografía profesional */
 .masonry-grid {
-    column-count: 3; /* 3 columnas en computadoras */
+    column-count: 3;
     column-gap: 25px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .masonry-item {
-    break-inside: avoid; /* Evita que la foto se corte entre columnas */
+    break-inside: avoid;
     margin-bottom: 25px;
     background-color: transparent;
 }
 
 .masonry-item img {
     width: 100%;
-    height: auto; /* Mantiene la proporción real y original de cada foto */
+    height: auto;
     display: block;
     cursor: pointer;
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -224,7 +223,6 @@ nav a:hover { color: var(--texto-suave); }
     opacity: 0.95;
 }
 
-/* Adaptabilidad para tablets y celulares */
 @media (max-width: 1024px) {
     .masonry-grid { column-count: 2; }
 }
