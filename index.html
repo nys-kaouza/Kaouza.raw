@@ -48,18 +48,28 @@
         </div>
     </section>
 
-    <!-- PORTAFOLIO (MÁSÓNRY FLUIDO) -->
+    <!-- PORTAFOLIO CON FILTROS -->
     <section id="portafolio" class="portfolio-section">
         <h2 class="subtitulo-fino text-center">NUESTRO TRABAJO</h2>
         
+        <!-- Botones de Categorías -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="retrato">Retrato</button>
+            <button class="filter-btn" data-filter="eventos">Eventos</button>
+            <button class="filter-btn" data-filter="paisajes">Paisajes</button>
+            <button class="filter-btn" data-filter="documental">Documental</button>
+        </div>
+
+        <!-- Galería (Masonry con categorías) -->
         <div class="masonry-grid">
-            <div class="masonry-item"><img src="img/1.jpeg" alt="Portafolio 1"></div>
-            <div class="masonry-item"><img src="img/2.jpeg" alt="Portafolio 2"></div>
-            <div class="masonry-item"><img src="img/3.jpeg" alt="Portafolio 3"></div>
-            <div class="masonry-item"><img src="img/4.jpeg" alt="Portafolio 4"></div>
-            <div class="masonry-item"><img src="img/5.jpeg" alt="Portafolio 5"></div>
-            <div class="masonry-item"><img src="img/6.jpeg" alt="Portafolio 6"></div>
-            <div class="masonry-item"><img src="img/7.jpeg" alt="Portafolio 7"></div>
+            <div class="masonry-item" data-category="documental"><img src="img/1.jpeg" alt="Portafolio 1"></div>
+            <div class="masonry-item" data-category="paisajes"><img src="img/2.jpeg" alt="Portafolio 2"></div>
+            <div class="masonry-item" data-category="eventos"><img src="img/3.jpeg" alt="Portafolio 3"></div>
+            <div class="masonry-item" data-category="retrato"><img src="img/4.jpeg" alt="Portafolio 4"></div>
+            <div class="masonry-item" data-category="retrato"><img src="img/5.jpeg" alt="Portafolio 5"></div>
+            <div class="masonry-item" data-category="paisajes"><img src="img/6.jpeg" alt="Portafolio 6"></div>
+            <div class="masonry-item" data-category="documental"><img src="img/7.jpeg" alt="Portafolio 7"></div>
         </div>
     </section>
 
@@ -67,7 +77,7 @@
     <section id="contacto" class="contacto-minimalista">
         <h2 class="titulo-elegante">Hablemos de tu visión</h2>
         <p>Permítenos documentar tu historia con la fuerza que merece.</p>
-        <a href="https://wa.me/528119827084" class="btn-linea" target="_blank">Contactar por WhatsApp</a>
+        <a href="https://wa.me/521234567890" class="btn-linea" target="_blank">Contactar por WhatsApp</a>
     </section>
 
     <!-- VISOR DE FOTOS (LIGHTBOX) -->
