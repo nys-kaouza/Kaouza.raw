@@ -83,7 +83,7 @@ nav a:hover { color: var(--texto-suave); }
 }
 
 /* =========================================
-   INICIO (HERO ANIMADO CON FOTO EN CARPETA IMG)
+   INICIO (HERO ANIMADO)
 ========================================= */
 .hero {
     position: relative;
@@ -188,14 +188,52 @@ nav a:hover { color: var(--texto-suave); }
 }
 
 /* =========================================
-   PORTAFOLIO (MÁSÓNRY FLUIDO)
+   PORTAFOLIO Y FILTROS
 ========================================= */
 .portfolio-section {
     padding: 100px 5vw;
     background-color: var(--bg-secundario); 
 }
 
-.text-center { text-align: center; margin-bottom: 60px; display: block; }
+.text-center { text-align: center; margin-bottom: 40px; display: block; }
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--texto-suave);
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: var(--texto-principal);
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background-color: var(--texto-principal);
+}
 
 .masonry-grid {
     column-count: 3;
@@ -208,6 +246,11 @@ nav a:hover { color: var(--texto-suave); }
     break-inside: avoid;
     margin-bottom: 25px;
     background-color: transparent;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.masonry-item.oculto {
+    display: none !important;
 }
 
 .masonry-item img {
