@@ -1,50 +1,70 @@
 // Esperamos a que todo el HTML cargue antes de ejecutar el código
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // =========================================
-    // 1. LÓGICA DEL VISOR DE FOTOS (LIGHTBOX)
-    // =========================================
-    const visor = document.getElementById("visor-fotos");
-    const imgAmpliada = document.getElementById("img-ampliada");
-    const btnCerrar = document.querySelector(".cerrar-visor");
-    const imagenes = document.querySelectorAll(".gallery-grid img");
+    // 1. LÓGICA DE FILTROS DE CATEGORÍA
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const masonryItems = document.querySelectorAll('.masonry-item');
 
-    // Al darle clic a cualquier imagen, abrir el visor
-    imagenes.forEach(img => {
-        img.addEventListener("click", function() {
-            visor.style.display = "block";
-            imgAmpliada.src = this.src;
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remover clase active de todos los botones y ponérsela al presionado
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            masonryItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.classList.remove('oculto');
+                } else {
+                    item.classList.add('oculto');
+                }
+            });
         });
     });
 
-    // Cerrar el visor al darle clic a la "X"
-    btnCerrar.addEventListener("click", () => {
-        visor.style.display = "none";
-    });
-
-    // Cerrar si hacen clic en el fondo oscuro
-    visor.addEventListener("click", (evento) => {
-        if (evento.target === visor) {
-            visor.style.display = "none";
-        }
-    });
-
-    // =========================================
-    // 2. LÓGICA DEL MENÚ HAMBURGUESA
-    // =========================================
-    const menuHamburguesa = document.getElementById('mobile-menu');
+    // 2. MENÚ HAMBURGUESA (Móviles)
+    const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
-    // Abrir o cerrar el menú al tocar las 3 rayitas
-    menuHamburguesa.addEventListener('click', () => {
-        navMenu.classList.toggle('activo');
-    });
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('activo');
+        });
 
-    // Cerrar el menú automáticamente cuando el cliente elige una opción (vital en celulares)
-    document.querySelectorAll('.nav-menu a').forEach(enlace => {
-        enlace.addEventListener('click', () => {
-            navMenu.classList.remove('activo');
+        // Cerrar menú al hacer clic en cualquier opción
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('activo');
+            });
+        });
+    }
+
+    // 3. VISOR DE FOTOS (LIGHTBOX)
+    const visor = document.getElementById('visor-fotos');
+    const imgAmpliada = document.getElementById('img-ampliada');
+    const cerrarVisor = document.querySelector('.cerrar-visor');
+    const galeriaImgs = document.querySelectorAll('.masonry-item img');
+
+    galeriaImgs.forEach(img => {
+        img.addEventListener('click', () => {
+            visor.style.display = 'block';
+            imgAmpliada.src = img.src;
         });
     });
 
+    if (cerrarVisor) {
+        cerrarVisor.addEventListener('click', () => {
+            visor.style.display = 'none';
+        });
+    }
+
+    if (visor) {
+        visor.addEventListener('click', (e) => {
+            if (e.target === visor) {
+                visor.style.display = 'none';
+            }
+        });
+    }
 });
