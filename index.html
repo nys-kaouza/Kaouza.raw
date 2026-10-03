@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kaouza.raw | Fotografía</title>
+    <!-- Importamos Syne e Inter desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MENÚ SUPERIOR -->
+    <header>
+        <a href="#inicio" class="logo">kaouza.raw</a>
+        
+        <div class="menu-hamburguesa" id="mobile-menu">
+            <span class="barra"></span>
+            <span class="barra"></span>
+            <span class="barra"></span>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">El Artista</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- INICIO (HERO ANIMADO CON PORTADA) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>kaouza.raw<span>hacemos eterno lo fugaz</span></h1>
+        </div>
+    </section>
+
+    <!-- SOBRE MÍ (EL ARTISTA) -->
+    <section id="sobre-mi" class="editorial-section">
+        <div class="texto-editorial">
+            <h2 class="subtitulo-fino">EL ARTISTA</h2>
+            <h3 class="titulo-elegante">Un sueño de infancia convertido en arte</h3>
+            <p>Desde que era niño, la fotografía no era solo una curiosidad, sino su forma favorita de mirar el mundo con asombro y alegría. Hoy, ese sueño de infancia da vida a <strong>kaouza.raw</strong>.</p>
+            <p>Detrás de cada cámara hay una combinación única: un trato profundamente humano, alegre y cercano, respaldado por una profesionalidad rigurosa. Con un enfoque documental y un respeto absoluto por la autenticidad, Francisco no fabrica momentos; espera pacientemente a que sucedan para preservarlos para la eternidad.</p>
+        </div>
+        <div class="imagen-editorial">
+            <img src="yo.jpeg" alt="Francisco - kaouza.raw">
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section id="portafolio" class="portfolio-section">
+        <h2 class="subtitulo-fino text-center">NUESTRO TRABAJO</h2>
+        
+        <div class="masonry-grid">
+            <div class="masonry-item"><img src="1.jpeg" alt="Portafolio 1"></div>
+            <div class="masonry-item"><img src="2.jpeg" alt="Portafolio 2"></div>
+            <div class="masonry-item"><img src="3.jpeg" alt="Portafolio 3"></div>
+            <div class="masonry-item"><img src="4.jpeg" alt="Portafolio 4"></div>
+            <div class="masonry-item"><img src="5.jpeg" alt="Portafolio 5"></div>
+            <div class="masonry-item"><img src="6.jpeg" alt="Portafolio 6"></div>
+            <div class="masonry-item"><img src="7.jpeg" alt="Portafolio 7"></div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto-minimalista">
+        <h2 class="titulo-elegante">Hablemos de tu visión</h2>
+        <p>Permítenos documentar tu historia con la fuerza que merece.</p>
+        <a href="https://wa.me/528119827084" class="btn-linea" target="_blank">Contactar por WhatsApp</a>
+    </section>
+
+    <!-- VISOR DE FOTOS (LIGHTBOX) -->
+    <div id="visor-fotos" class="visor-oculto">
+        <span class="cerrar-visor">&times;</span>
+        <img class="visor-img" id="img-ampliada">
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

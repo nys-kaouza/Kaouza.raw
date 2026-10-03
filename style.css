@@ -1,0 +1,274 @@
+/* =========================================
+   VARIABLES DE COLOR Y FUENTES
+========================================= */
+:root {
+    --bg-principal: #FFFFFF;    
+    --bg-secundario: #F9F9F9;   
+    --texto-principal: #111111; 
+    --texto-suave: #666666;     
+    --blanco-absoluto: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    line-height: 1.7;
+}
+
+/* Tipografía Syne para títulos y logo */
+h1, h2, h3, .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5vw;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: var(--texto-principal);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-menu { display: flex; }
+
+nav a {
+    text-decoration: none;
+    color: var(--texto-principal);
+    margin-left: 40px;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+nav a:hover { color: var(--texto-suave); }
+
+/* =========================================
+   MENÚ HAMBURGUESA (Celulares)
+========================================= */
+.menu-hamburguesa { display: none; flex-direction: column; cursor: pointer; }
+.menu-hamburguesa .barra { width: 28px; height: 2px; background-color: var(--texto-principal); margin: 5px 0; transition: 0.3s; }
+
+@media (max-width: 768px) {
+    .menu-hamburguesa { display: flex; }
+    .nav-menu {
+        position: absolute; top: 100%; left: -100%; width: 100%;
+        background-color: var(--bg-principal);
+        flex-direction: column; text-align: center; transition: 0.4s;
+        padding: 40px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+    .nav-menu.activo { left: 0; }
+    nav a { margin: 20px 0; font-size: 1.1em; color: var(--texto-principal); margin-left: 0;}
+}
+
+/* =========================================
+   INICIO (HERO ANIMADO)
+========================================= */
+.hero {
+    position: relative;
+    height: 100vh; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: linear-gradient(rgba(17, 17, 17, 0.45), rgba(17, 17, 17, 0.45)), 
+                url('portada.jpg') center/cover no-repeat;
+    animation: zoomLento 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomLento {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); } 
+}
+
+.hero-content {
+    animation: aparecerArriba 1.5s ease-out forwards;
+    opacity: 0; 
+    transform: translateY(40px); 
+}
+
+@keyframes aparecerArriba {
+    to {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.hero h1 {
+    font-size: 4vw;
+    color: var(--blanco-absoluto);
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.hero h1 span {
+    display: block;
+    font-size: 0.5em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+/* =========================================
+   SECCIÓN SOBRE MÍ (EL ARTISTA)
+========================================= */
+.editorial-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 140px 5vw;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.texto-editorial { flex: 1; min-width: 300px; }
+
+.subtitulo-fino {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-bottom: 20px;
+}
+
+.titulo-elegante {
+    font-size: 2.8em;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.texto-editorial p {
+    font-size: 1.05em;
+    color: var(--texto-suave);
+}
+
+.imagen-editorial { flex: 1; min-width: 300px; }
+
+.imagen-editorial img {
+    width: 100%;
+    height: 75vh; 
+    object-fit: cover;
+}
+
+/* =========================================
+   PORTAFOLIO (MÁSÓNRY FLUIDO - SIN BORDES NEGROS)
+========================================= */
+.portfolio-section {
+    padding: 100px 5vw;
+    background-color: var(--bg-secundario); 
+}
+
+.text-center { text-align: center; margin-bottom: 60px; display: block; }
+
+/* Sistema de columnas puras para portafolios de fotografía profesional */
+.masonry-grid {
+    column-count: 3; /* 3 columnas en computadoras */
+    column-gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.masonry-item {
+    break-inside: avoid; /* Evita que la foto se corte entre columnas */
+    margin-bottom: 25px;
+    background-color: transparent;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción real y original de cada foto */
+    display: block;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.masonry-item img:hover {
+    transform: scale(1.02);
+    opacity: 0.95;
+}
+
+/* Adaptabilidad para tablets y celulares */
+@media (max-width: 1024px) {
+    .masonry-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid { column-count: 1; }
+}
+
+/* =========================================
+   CONTACTO
+========================================= */
+.contacto-minimalista {
+    text-align: center;
+    padding: 140px 20px;
+    background-color: var(--bg-principal);
+}
+
+.btn-linea {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 40px;
+    border: 1px solid var(--texto-principal); 
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    transition: 0.3s ease;
+}
+
+.btn-linea:hover {
+    background-color: var(--texto-principal);
+    color: var(--blanco-absoluto);
+}
+
+/* =========================================
+   VISOR DE FOTOS (LIGHTBOX)
+========================================= */
+.visor-oculto { 
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(17, 17, 17, 0.98); 
+}
+.visor-img { margin: 5vh auto; display: block; max-width: 90%; max-height: 90vh; object-fit: contain; }
+.cerrar-visor { position: absolute; top: 20px; right: 40px; color: var(--blanco-absoluto); font-size: 40px; cursor: pointer; font-family: 'Inter'; }
