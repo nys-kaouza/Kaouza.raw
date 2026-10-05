@@ -1,4 +1,3 @@
-// Esperamos a que todo el HTML cargue antes de ejecutar el código
 document.addEventListener('DOMContentLoaded', () => {
     // 1. LÓGICA DE FILTROS DE CATEGORÍA
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remover clase active de todos los botones y ponérsela al presionado
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -33,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('activo');
         });
 
-        // Cerrar menú al hacer clic en cualquier opción
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('activo');
@@ -64,6 +61,31 @@ document.addEventListener('DOMContentLoaded', () => {
         visor.addEventListener('click', (e) => {
             if (e.target === visor) {
                 visor.style.display = 'none';
+            }
+        });
+    }
+
+    // 4. MODAL DE POLÍTICA DE PRIVACIDAD
+    const modalPrivacidad = document.getElementById('privacy-modal');
+    const btnPrivacidad = document.getElementById('btn-privacidad');
+    const cerrarModal = document.querySelector('.cerrar-modal');
+
+    if (btnPrivacidad && modalPrivacidad) {
+        btnPrivacidad.addEventListener('click', () => {
+            modalPrivacidad.style.display = 'block';
+        });
+    }
+
+    if (cerrarModal && modalPrivacidad) {
+        cerrarModal.addEventListener('click', () => {
+            modalPrivacidad.style.display = 'none';
+        });
+    }
+
+    if (modalPrivacidad) {
+        modalPrivacidad.addEventListener('click', (e) => {
+            if (e.target === modalPrivacidad) {
+                modalPrivacidad.style.display = 'none';
             }
         });
     }
