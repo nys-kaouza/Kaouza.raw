@@ -102,7 +102,7 @@ nav a:hover { color: var(--texto-suave); }
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
     background: linear-gradient(rgba(17, 17, 17, 0.45), rgba(17, 17, 17, 0.45)), 
-                url('img/portada.png') center/cover no-repeat;
+                url('img/portada.jpg') center/cover no-repeat;
     animation: zoomLento 20s ease-in-out infinite alternate;
 }
 
